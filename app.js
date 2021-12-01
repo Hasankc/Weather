@@ -6,7 +6,7 @@
   
 
  
-    //app.use(bodyParser.urlencoded({ extended: true }));
+  //app.use(express.urlencoded({extended: true}));
 
   const app = express(); 
 
@@ -17,10 +17,10 @@
     
        
       const appid = 'f9df0681f60a33fb0e12f66c79e2f007';
-      const query=req.body.cityName;
+      const query=req.body.CityName;
       const unit = "metric";
-      const url = 'https://api.openweathermap.org/data/2.5/weather?q='+ query+ '&appid=' +appid +'&units=' + unit;
-  https.get(url, function(response) {
+      const url = "https://api.openweathermap.org/data/2.5/weather?q="+ query+ "&appid=" +appid +"&units=" + metric;
+    https.get(url, function(response) {
     console.log(response.statusCode);
 
       
@@ -29,7 +29,7 @@
       const tamp = weatherData.main.temp;
       const weatherDes = weatherData.weather[0].Des;
       const icon = weatherData.weather[0].icon;
-      const imgeURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+      const imgeURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
       res.write("The weather is" + weatherDes);
       res.write("<h1>the weather" + temp + "in"  + query + "here</h1>");
       res.write("<img  src=" + imgeURL + " >");
