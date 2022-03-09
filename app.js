@@ -4,24 +4,25 @@
   const https = require("https");
   const bodyParser = require("body-parser");
   
+  
+  const app = express(); 
 
  
   //app.use(express.urlencoded({extended: true}));
 
-  const app = express(); 
+  
 
     app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
   });
-    app.post("/", function(req, res){
+      app.post("/", function(req, res){
     
-       
+      const query = req.body.cityName;
       const appid = 'f9df0681f60a33fb0e12f66c79e2f007';
-      const query=req.body.CityName;
       const unit = "metric";
-      const url = "https://api.openweathermap.org/data/2.5/weather?q="+ query+ "&appid=" +appid +"&units=" + metric;
+      const url = "https://api.openweathermap.org/data/2.5/weather?q="+ query + "&appid=" + appid +"&units=" + unit;
     https.get(url, function(response) {
-    console.log(response.statusCode);
+    //console.log(response.statusCode);
 
       
       response.on("data", function(data){
