@@ -1,0 +1,15 @@
+<%- include("header") -%>
+
+<body>
+    <div class="card">
+    <h1>weather</h1>
+<form action="/weather" method="post">
+    <label for="inputCity">City Name:</label>
+    
+       
+    <input type="text" id="inputCity" placeholder="Enter city name" name="cityname" autofocus="required">
+    <button type="submit" class="btn btn-primary">Go</button>
+</form>
+</div>
+    
+<%- include("footer") -%>
