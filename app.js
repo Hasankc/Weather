@@ -23,7 +23,7 @@ app.post("/weather",function(req,res){
     const city=req.body.cityname;
    
     const query=city;
-    const apiKey="ac31d3536effca6fc8a3e073c24776f8";
+    const apiKey="";
     const unit="metric";
     const url="https://api.openweathermap.org/data/2.5/weather?q="+query+"&units="+unit+"&appid="+apiKey;
     https.get(url,function(response){
